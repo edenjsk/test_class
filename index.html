@@ -45,10 +45,10 @@
 
     async function predict() {
         const prediction = await model.predict(webcam.canvas);
-        if (prediction[0].className == "car key" && prediction[0].probability.toFixed(2) >= 0.90) {
+        if (prediction[0].className == "car key" && prediction[0].probability.toFixed(2) >= 0.95) {
             labelContainer.childNodes[0].innerHTML = "예솔아, 차키 챙겨라";
-        } else if (prediction[1].className == "mobile phone" && prediction[1].probability.toFixed(2) >= 0.90) {
-            labelContainer.childNodes[1].innerHTML = "윤서야, 핸드폰 챙겨라";
+        } else if (prediction[1].className == "mobile phone" && prediction[1].probability.toFixed(2) >= 0.95) {
+            labelContainer.childNodes[0].innerHTML = "윤서야, 핸드폰 챙겨라";
         } else {
             labelContainer.childNodes[0].innerHTML = "영준아, 뭐 두고 가는 거 없냐?"
         }
