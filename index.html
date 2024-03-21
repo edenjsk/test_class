@@ -63,8 +63,7 @@
         } else if (prediction[1].className == "mobile phone" && prediction[1].probability.toFixed(2) >= 0.95) { // 문자열로 비교하고 확률 조건 완화
             labelContainer.childNodes[1].innerHTML = "윤서야, 핸드폰 챙겨라"; // 적절한 childNode 업데이트
         } else {
-            // 조건을 만족하지 않는 경우에 대한 메시지를 업데이트하려면, 모든 레이블 컨테이너를 업데이트하거나
-            // 특정 로직을 추가하여 관리해야 합니다.
+            labelContainer.childNodes[0].innerHTML = "영준아, 뭐 두고 가는 거 없냐?"
         }
     }
  
