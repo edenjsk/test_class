@@ -46,16 +46,19 @@
         async function init() {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
-
+        
             model = await tmImage.load(modelURL, metadataURL);
             maxPredictions = model.getTotalClasses();
-
-            const flip = true; 
-            webcam = new tmImage.Webcam(200, 200, flip);
+        
+            const flip = true;
+            // 예시: 해상도를 더 크게 설정
+            const width = 640; // 가로 해상도
+            const height = 480; // 세로 해상도
+            webcam = new tmImage.Webcam(width, height, flip);
             await webcam.setup({ facingMode: "environment" });
             await webcam.play();
             window.requestAnimationFrame(loop);
-
+        
             document.getElementById("webcam-container").appendChild(webcam.canvas);
             labelContainer = document.getElementById("label-container");
             for (let i = 0; i < maxPredictions; i++) { 
