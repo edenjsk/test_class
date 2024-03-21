@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* 중앙 정렬을 위한 스타일 */
         .center-container {
             display: flex;
             justify-content: center;
@@ -15,13 +14,13 @@
             margin: auto;
         }
         #webcam-container, #label-container {
-            width: 100%; /* 웹캠과 라벨 컨테이너 너비를 100%로 설정 */
-            text-align: center; /* 텍스트 중앙 정렬 */
+            width: 100%;
+            text-align: center;
         }
         .title {
-            width: 100%; /* 제목 너비를 100%로 설정 */
-            text-align: center; /* 제목 텍스트 중앙 정렬 */
-            margin: 20px 0; /* 상하 여백 설정 */
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
         }
         #webcam-container canvas {
             max-width: 100%;
@@ -51,9 +50,8 @@
             maxPredictions = model.getTotalClasses();
         
             const flip = true;
-            // 예시: 해상도를 더 크게 설정
-            const width = 640; // 가로 해상도
-            const height = 480; // 세로 해상도
+            const width = 640; 
+            const height = 480; 
             webcam = new tmImage.Webcam(width, height, flip);
             await webcam.setup({ facingMode: "environment" });
             await webcam.play();
@@ -75,11 +73,11 @@
         async function predict() {
             const prediction = await model.predict(webcam.canvas);
             if (prediction[0].className == "car key" && prediction[0].probability.toFixed(2) >= 0.95) {
-                labelContainer.childNodes[0].innerHTML = "예솔아, 차키 챙겨라. 배에서 삼돌이는 선임들의 물건을 잘 챙겨야 하는 법이지. 우선 체크리스트에 따라 차키는 지정된 장소에 보관해야 하고, 배터리 잔량을 항상 확인해서 언제나 사용할 수 있는 상태로 두어야 해.";
+                labelContainer.childNodes[0].innerHTML = "예솔아, 차키 챙겨라. 배에서 3/O는 선임들의 물건을 잘 챙겨야 하는 법이지. 우선 체크리스트에 따라 차키는 지정된 장소에 보관해야 하고, 배터리 잔량을 항상 확인해서 언제나 사용할 수 있는 상태로 두어야 해.";
             } else if (prediction[1].className == "cigarette" && prediction[1].probability.toFixed(2) >= 0.95) {
-                labelContainer.childNodes[0].innerHTML = "윤서야, 담배 가져가. 담배는 건강에 해롭지만 니가 꼭 피워야 하겠다면, 말리지 않겠어. 담배는 서늘한 곳에 보관하도록 하고, 다 피운 후에는 재떨이에 버리도록 하렴.";
+                labelContainer.childNodes[0].innerHTML = "윤서야, 담배 가져가. 담배는 건강에 해롭지만 니가 꼭 피워야 하겠다면, 말리지 않겠어. 담배는 서늘한 곳에 보관하도록 하고, 다 피운 후에는 재떨이에 버리도록 하렴. 니코틴 파워 충전!!!";
             } else {
-                labelContainer.childNodes[0].innerHTML = "영준아, 너는 뭐 두고 가는 거 없냐? 항상 내가 뭘 빠뜨리지 않았는지 점검하고, 삼돌이의 덕목인 멘탈을 잘 관리하도록 해. 2시는 안된다.. 3시만이 살 길이다.ㅋ"
+                labelContainer.childNodes[0].innerHTML = "영준아, 너는 뭐 두고 가는 거 없냐? 항상 준비해야 할 물품을 빠뜨리지 않았는지 점검하고, 3/O의 덕목인 멘탈을 잘 챙기도록 하렴. 여친은 어차피 육상에서 딴 남자 만나고 있을거야.ㅋㅋㅋ"
             }
         }
     </script>
