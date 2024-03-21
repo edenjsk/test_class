@@ -58,9 +58,9 @@
     // run the webcam image through the image model
     async function predict() {
         const prediction = await model.predict(webcam.canvas);
-        if (prediction[0].className == "car key" && prediction[0].probability.toFixed(2) >= 0.95) { // 문자열로 비교하고 확률 조건 완화
+        if (prediction[0].className == "car key" && prediction[0].probability.toFixed(2) >= 0.75) { // 문자열로 비교하고 확률 조건 완화
             labelContainer.childNodes[0].innerHTML = "예솔아, 차키 챙겨라";
-        } else if (prediction[1].className == "mobile phone" && prediction[1].probability.toFixed(2) >= 0.95) { // 문자열로 비교하고 확률 조건 완화
+        } else if (prediction[1].className == "mobile phone" && prediction[1].probability.toFixed(2) >= 0.75) { // 문자열로 비교하고 확률 조건 완화
             labelContainer.childNodes[1].innerHTML = "윤서야, 핸드폰 챙겨라"; // 적절한 childNode 업데이트
         } else {
             labelContainer.childNodes[0].innerHTML = "영준아, 뭐 두고 가는 거 없냐?"
